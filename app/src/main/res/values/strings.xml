@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Indemnizapp!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="diasTotales">"Habiendo trabajado: "</string>
+    <string name="tv1">Te corresponde:</string>
+    <string name="dias">días</string>
+    <string name="fechaDesde">Desde:</string>
+    <string name="fechaHasta">Hasta:</string>
+    <string name="remunerativo"><b>Remunerativo:</b></string>
+    <string name="sueldoMes">Sueldo mensual:</string>
+    <string name="SAC">SAC:</string>
+    <string name="no_remunerativo"><b>No remunerativo:</b></string>
+    <string name="vacaciones_nog">Vacaciones no gozadas:</string>
+    <string name="sac_vacaciones">SAC vacaciones no gozadas</string>
+    <string name="descuentos"><b>Descuentos:</b></string>
+    <string name="jubilacion">Jubilación:</string>
+    <string name="ley">Ley INSSJP:</string>
+    <string name="obrasocial">Obra social:</string>
+    <string name="monto_total"><b><u>Total aproximado:</u></b></string>
+    <string name="preaviso">"Preaviso: "</string>
+    <string name="sac_preaviso">SAC Preaviso:</string>
+    <string name="antiguedad">Antigüedad:</string>
+    <string name="integracionMesDespido">Integración mes de despido</string>
+    <string name="sac_integracion">SAC integración</string>
+    <string name="topeoTxt">Decreto 39/2021:</string>
+</resources>
