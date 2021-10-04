@@ -99,6 +99,7 @@ class FrgGiveUpResult : Fragment() {
 
         val startDate = convertLongToTime(start!!)
         val endDate = convertLongToTime(end!!)
+        val startDateInt = startDate.split("/")[0].toInt()
         val endDateSplit = endDate.split("/")[0].toInt()
         val diff : Long = end!!.times(1) - start!!.times(1)
         val days = ((diff / 1000) / 60 / 60 / 24).toInt()
@@ -136,7 +137,7 @@ class FrgGiveUpResult : Fragment() {
         tv_no_remunerativo_2.text = sacvacaciones_txt
         val montoPreaviso = if (preaviso == false ) getPreaviso(years) else 0
         val montoSacPreaviso = getString(R.string.sac_preaviso) + " $"+ montoPreaviso/12
-        val montoAntiguedad = (getAntiguedad(month,years))
+        val montoAntiguedad = (getAntiguedad(month,years,startDateInt,endDateSplit))
         val montoIntegracion = (sueldo!!/30)*(30-endDateSplit)
         tv_no_remunerativo_6.text = getString(R.string.integracionMesDespido)  + " $" + montoIntegracion
         val sacIntegracion = (montoIntegracion/12)
@@ -200,14 +201,14 @@ class FrgGiveUpResult : Fragment() {
         return 0
     }
 
-    fun getAntiguedad(month: Int,years : Int) : Int {
+    fun getAntiguedad(month: Int,years : Int, startDateInt : Int, endDateInt : Int) : Int {
         var yearsCopy = years
         if(years == 0 && month > 3){
             yearsCopy += 1
         }
         val mesesTotales = years * 12
         val resto = month - mesesTotales
-        if(resto >= 3){
+        if((resto == 3 && startDateInt<endDateInt) || (resto > 3)){
             yearsCopy += 1
         }
         return yearsCopy
