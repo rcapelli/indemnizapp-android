@@ -43,6 +43,7 @@ private const val YEAR = 360
 private const val PRIMERO_JULIO_VEINTE = 1593561600000L
 private const val PRIMERO_ENERO_VEINTE = 1577836800000L
 private const val FIN_ANIO_VEINTE = 1609372800000L
+private const val DOBLE_INDEMN_FECHA = 1576195200000L
 
 class FrgGiveUpResult : Fragment() {
     private var sueldo: Int? = null
@@ -181,6 +182,10 @@ class FrgGiveUpResult : Fragment() {
 
             tv_no_remunerativo_8.visibility = View.VISIBLE
         }
+        if(start!! > DOBLE_INDEMN_FECHA){
+            sumas -= tope
+            tv_no_remunerativo_8.visibility = View.INVISIBLE
+        }
         if(endDateSplit<30){
             sumas += montoIntegracion+sacIntegracion
         }
@@ -203,12 +208,11 @@ class FrgGiveUpResult : Fragment() {
 
     fun getAntiguedad(month: Int,years : Int, startDateInt : Int, endDateInt : Int) : Int {
         var yearsCopy = years
-        if(years == 0 && month > 3){
-            yearsCopy += 1
-        }
         val mesesTotales = years * 12
         val resto = month - mesesTotales
-        if((resto == 3 && startDateInt<endDateInt) || (resto > 3)){
+        if(years == 0 && month > 3){
+            yearsCopy += 1
+        }else if((resto == 3 && startDateInt<endDateInt) || (resto > 3)){
             yearsCopy += 1
         }
         return yearsCopy
