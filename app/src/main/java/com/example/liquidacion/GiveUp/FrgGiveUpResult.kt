@@ -184,6 +184,7 @@ class FrgGiveUpResult : Fragment() {
         }
         if(start!! > DOBLE_INDEMN_FECHA){
             sumas -= tope
+            tv_no_remunerativo_8.text = ""
             tv_no_remunerativo_8.visibility = View.INVISIBLE
         }
         if(endDateSplit<30){
